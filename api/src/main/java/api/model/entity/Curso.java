@@ -1,8 +1,5 @@
 package api.model.entity;
 
-import api.model.util.CargaHoraria;
-
-import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +29,6 @@ public class Curso {
 	private String titulo;
 
 	@Column(name = "carga_horaria", nullable = false)
-  // @Enumerated(EnumType.STRING)
-  // private CargaHoraria cargaHoraria;
   private String cargaHoraria;
 
   @Column(name = "data_inicio")
@@ -66,14 +61,6 @@ public class Curso {
   public void setTitulo(String titulo) {
     this.titulo = titulo;
   }
-
-  // public CargaHoraria getCargaHoraria() {
-  //   return cargaHoraria;
-  // }
-	//
-  // public void setCargaHoraria(CargaHoraria cargaHoraria) {
-  //   this.cargaHoraria = cargaHoraria;
-  // }
 
   public String getCargaHoraria() {
     return cargaHoraria;
