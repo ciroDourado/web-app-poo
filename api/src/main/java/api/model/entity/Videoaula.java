@@ -1,6 +1,7 @@
 package api.model.entity;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "videoaulas")
@@ -19,6 +20,7 @@ public class Videoaula {
   @Column(nullable = false)
   private Integer numero;
 
+	@JsonIgnoreProperties({"videoaulas"})
   @ManyToOne
   @JoinColumn(name = "id_curso_fk")
   private Curso curso;
