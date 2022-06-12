@@ -14,23 +14,18 @@ Independente do sistema que estiver usando, se atente em:
 3. e inserir os dados em cada campo necessário dentro de application.properties
 
 ### Detalhado
-Caso esteja num sistema baseado em Unix, no terminal faça:
+Caso esteja num sistema baseado em Unix, apenas cole no terminal e execute:
 <br />
 (não siga isso se estiver usando um Windows)
 <br />
 ```
 cd src/main/resources/
-```
-```
 cp application.example.properties application.properties
-```
-```
 $EDITOR application.properties
+cd ../../..
 ```
 
 ## Executando
-Volte à pasta raiz deste projeto.
-<br />
 Para rodar o sistema, por fim execute:
 <br />
 1. Linux/Unix:
