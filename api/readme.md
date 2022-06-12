@@ -10,7 +10,7 @@ Para isso, execute o seguinte passo a passo:
 - para o arquivo src/main/resources/application.properties (este não existe previamente)
 - insira os dados em cada campo necessário dentro de application.properties
 
-Caso esteja num sistema baseado em Unix, num terminal faça:__
-``` cd src/main/resources/ ```__
-``` cp application.example.properties application.properties ```__
-``` $EDITOR application.properties ```__
+Caso esteja num sistema baseado em Unix, num terminal faça: <br />
+``` cd src/main/resources/ ``` <br />
+``` cp application.example.properties application.properties ``` <br />
+``` $EDITOR application.properties ``` <br />
