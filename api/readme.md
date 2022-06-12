@@ -19,12 +19,14 @@ Para isso, se atente ao seguinte passo a passo:
 
 ## Passo a passo detalhado
 Caso esteja num sistema baseado em Unix, no terminal faça: <br />
+(não siga isso caso esteja usando um Windows) <br />
 ``` cd src/main/resources/ ``` <br />
 ``` cp application.example.properties application.properties ``` <br />
 ``` $EDITOR application.properties ``` <br />
 
 ## Executando
-Para rodar o projeto, por fim execute: <br />
+Volte à pasta raiz deste projeto. <br />
+Para rodar o sistema, por fim execute: <br />
 Sistema Unix: ```./mvnw clean spring-boot:run``` <br />
 Windows: ```.\mvnw.cmd clean spring-boot:run``` <br />
 
