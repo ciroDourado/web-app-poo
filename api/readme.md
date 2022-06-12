@@ -2,8 +2,18 @@
 
 Primeiramente, defina as suas variáveis de ambiente local, como por exemplo:
 - banco de dados utilizado
-- usuário
-- senha
+- usuário do banco
+- senha deste usuário
+
+Isso é importante pois a aplicação irá usar estes dados para se conectar ao banco de dados presente na sua máquina local.
+Se você já possui um sistema gerenciador de banco de dados instalado, apenas se preocupe em criar um banco para este sistema.
+No geral, alguns desses gerenciadores já perguntam a qual usuário este banco deve ser vinculado - mas se não for seu caso, crie também um usuário com senha, e dê a ele privilégios (todos) para usar este banco.
+
+Feito.
+Mas há mais um passo a ser cumprido: a criação de tabelas.
+Apenas abra o interpretador do seu banco de dados, e insira as seguintes queries:
+1. create table cursos( id int not null auto_increment, titulo varchar(200), carga_horaria varchar(10), data_inicio date, primary key(id) );
+2. create table videoaulas( id int not null auto_increment, titulo varchar(60), descricao varchar(500), numero int, id_curso_fk int not null, primary key(id), foreign key(id_curso_fk) references cursos(id) );
 
 ## Passo a passo simplificado
 Para isso, execute o seguinte passo a passo:
