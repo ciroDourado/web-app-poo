@@ -51,7 +51,7 @@ Porém, é necessário saber de algumas coisas:
 4. assim como um banco inexistente, um usuário inexistente quebrará a aplicação;
 5. bem como um usuário que não possui as permissões necessárias para o acesso.
 <br />
-Nisso __sempre__ se atente ao seguinte: um banco deve ser existente. Crie um caso não exista.
+Nisso **sempre** se atente ao seguinte: um banco deve ser existente. Crie um caso não exista.
 <br />
 Geralmente no momento da criação de um banco, o sistema que gerencia pergunta a qual usuário devemos vincular aquele acesso. Por padrão ele sugere que o usuário root (que possui todos os privilégios) tenha acesso. Mas não é o recomendado, ainda mais se o root não foi configurado com uma senha.
 <br />
