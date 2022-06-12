@@ -9,11 +9,6 @@ Isso é importante pois a aplicação irá usar estes dados para se conectar ao 
 Se você já possui um sistema gerenciador de banco de dados instalado, apenas se preocupe em criar um banco para este sistema. <br />
 No geral, alguns desses gerenciadores já perguntam a qual usuário este banco deve ser vinculado - mas se não for seu caso, crie também um usuário com senha, e dê a ele privilégios (todos) para usar este banco. <br />
 
-Antes de partirmos para a configuração do projeto em si, mais um passo a ser cumprido: a criação de tabelas. <br />
-Apenas abra o interpretador do seu banco de dados, e insira as seguintes queries:
-1. create table cursos( id int not null auto_increment, titulo varchar(200), carga_horaria varchar(10), data_inicio date, primary key(id) );
-2. create table videoaulas( id int not null auto_increment, titulo varchar(60), descricao varchar(500), numero int, id_curso_fk int not null, primary key(id), foreign key(id_curso_fk) references cursos(id) );
-
 Com tudo isso, estamos prontos para configurar diretamente o projeto.
 
 ## Passo a passo simplificado
