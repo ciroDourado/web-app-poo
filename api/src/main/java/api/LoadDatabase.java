@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import api.model.util.CargaHoraria;
 import api.model.entity.*;
 import api.model.repository.*;
 import java.time.LocalDate;
@@ -16,34 +15,74 @@ class LoadDatabase {
 
   private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
-	// @Bean
-  // CommandLineRunner initDatabaseCursos(CursoRepository repository) {
-	// 	var spring = new Curso("20HS", LocalDate.now(), "API REST - Spring Boot");
-	// 	var laravel = new Curso("30HS", LocalDate.now(), "API REST - Laravel");
-	//
-  //   return args -> {
-  //     log.info("Preloading " + repository.save(spring));
-  //     log.info("Preloading " + repository.save(laravel));
-  //   };
-  // }
-	//
-	// @Bean
-  // CommandLineRunner initDatabaseVideoaulas(VideoaulaRepository repository) {
-	// 	var spring  = new Curso(); spring.setId(new Long(1));
-	// 	var laravel = new Curso(); laravel.setId(new Long(2));
-	//
-	// 	var sb_1 = new Videoaula("Aula 01", "...", 1, spring);
-	// 	var sb_2 = new Videoaula("Aula 02", "...", 2, spring);
-	// 	var lv_1 = new Videoaula("Aula 01 - Parte 1", "...", 3, laravel);
-	// 	var lv_2 = new Videoaula("Aula 01 - Parte 2", "...", 4, laravel);
-	// 	var lv_3 = new Videoaula("Aula 01 - Parte 3", "...", 5, laravel);
-	//
-  //   return args -> {
-  //     log.info("Preloading " + repository.save(sb_1));
-  //     log.info("Preloading " + repository.save(sb_2));
-  //     log.info("Preloading " + repository.save(lv_1));
-  //     log.info("Preloading " + repository.save(lv_2));
-  //     log.info("Preloading " + repository.save(lv_3));
-  //   };
-  // }
+	@Bean
+  CommandLineRunner initDatabaseCursos(CursoRepository repository) {
+		Long spring = new Long(1);
+		System.out.println(repository.findById(spring));
+		if (repository.findById(spring).isEmpty()) {
+			String    carga  = "20HS";
+			LocalDate inicio = LocalDate.now();
+			String    titulo = "API REST - Spring Boot";
+			repository.save(new Curso(carga, inicio, titulo));
+		}
+		Long laravel = new Long(2);
+		if (repository.findById(laravel).isEmpty()) {
+			String    carga   = "30HS";
+			LocalDate inicio  = LocalDate.now();
+			String    titulo  = "API REST - Laravel";
+			repository.save(new Curso(carga, inicio, titulo));
+		}
+    return args -> { log.info("Migração de cursos completa."); };
+  }
+
+	@Bean
+  CommandLineRunner initDatabaseVideoaulasLaravel(VideoaulaRepository repository) {
+		Curso laravel = new Curso(); laravel.setId(new Long(2));
+
+		Long aula_1 = new Long(1);
+		if (repository.findById(aula_1).isEmpty()) {
+			String    titulo    = "Aula 01";
+			String    descricao = "...";
+			int       numero    = 1;
+			repository.save(new Videoaula(titulo, descricao, numero, laravel));
+		}
+		Long aula_2 = new Long(2);
+		if (repository.findById(aula_2).isEmpty()) {
+			String    titulo    = "Aula 01";
+			String    descricao = "...";
+			int       numero    = 2;
+			repository.save(new Videoaula(titulo, descricao, numero, laravel));
+		}
+		Long aula_3 = new Long(3);
+		if (repository.findById(aula_3).isEmpty()) {
+			String    titulo    = "Aula 01";
+			String    descricao = "...";
+			int       numero    = 3;
+			repository.save(new Videoaula(titulo, descricao, numero, laravel));
+		}
+
+		return args -> { log.info("Migração das aulas de Laravel completa."); };
+  }
+
+	@Bean
+  CommandLineRunner initDatabaseVideoaulasSpring(VideoaulaRepository repository) {
+		Curso spring  = new Curso(); spring.setId(new Long(1));
+
+		Long aula_4 = new Long(4);
+		if (repository.findById(aula_4).isEmpty()) {
+			String    titulo    = "Aula 01";
+			String    descricao = "...";
+			int       numero    = 1;
+			repository.save(new Videoaula(titulo, descricao, numero, spring));
+		}
+		Long aula_5 = new Long(5);
+		if (repository.findById(aula_5).isEmpty()) {
+			String    titulo    = "Aula 02";
+			String    descricao = "...";
+			int       numero    = 1;
+			repository.save(new Videoaula(titulo, descricao, numero, spring));
+		}
+
+		return args -> { log.info("Migração das aulas de Spring Boot completa."); };
+  }
 }
