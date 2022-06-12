@@ -11,6 +11,6 @@ Para isso, execute o seguinte passo a passo:
 - insira os dados em cada campo necessário dentro de application.properties
 
 Caso esteja num sistema baseado em Unix, num terminal faça:
-``` cd src/main/resources/ ```
-``` cp application.example.properties application.properties ```
-``` $EDITOR application.properties ```
+- ``` cd src/main/resources/ ```
+- ``` cp application.example.properties application.properties ```
+- ``` $EDITOR application.properties ```
