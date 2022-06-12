@@ -1,34 +1,63 @@
 # Primeiros passos
 
-Primeiramente, defina as suas variáveis de ambiente local, como por exemplo:
-- banco de dados utilizado
+Primeiramente, tenha em mãos as suas variáveis de ambiente local, como por exemplo:
+- url para o banco de dados utilizado
 - usuário do banco
 - senha deste usuário
 
-Isso é importante pois a aplicação irá usar estes dados para se conectar ao banco de dados presente na sua máquina local. <br />
-Se você já possui um sistema gerenciador de banco de dados instalado, apenas se preocupe em criar um banco para este sistema. <br />
-No geral, alguns desses gerenciadores já perguntam a qual usuário este banco deve ser vinculado - mas se não for seu caso, crie também um usuário com senha, e dê a ele privilégios (todos) para usar este banco. <br />
+## Configurando
 
-Com tudo isso, estamos prontos para configurar diretamente o projeto.
-
-## Passo a passo simplificado
-Para isso, se atente ao seguinte passo a passo:
-1. copie o conteúdo do arquivo localizado em src/main/resources/application.example.properties
+### Passo a passo simplificado
+Independente do sistema que estiver usando, se atente em:
+1. copiar o conteúdo do arquivo localizado em src/main/resources/application.example.properties
 2. para o arquivo src/main/resources/application.properties (este não existe previamente)
-3. insira os dados em cada campo necessário dentro de application.properties
+3. e inserir os dados em cada campo necessário dentro de application.properties
 
-## Passo a passo detalhado
-Caso esteja num sistema baseado em Unix, no terminal faça: <br />
-(não siga isso caso esteja usando um Windows) <br />
-``` cd src/main/resources/ ``` <br />
-``` cp application.example.properties application.properties ``` <br />
-``` $EDITOR application.properties ``` <br />
+### Detalhado
+Caso esteja num sistema baseado em Unix, no terminal faça:
+<br />
+(não siga isso se estiver usando um Windows)
+<br />
+```
+cd src/main/resources/
+```
+```
+cp application.example.properties application.properties
+```
+```
+$EDITOR application.properties
+```
 
 ## Executando
-Volte à pasta raiz deste projeto. <br />
-Para rodar o sistema, por fim execute: <br />
-Sistema Unix: ```./mvnw clean spring-boot:run``` <br />
-Windows: ```.\mvnw.cmd clean spring-boot:run``` <br />
+Volte à pasta raiz deste projeto.
+<br />
+Para rodar o sistema, por fim execute:
+<br />
+1. Linux/Unix:
+```
+./mvnw clean spring-boot:run
+```
+2. Windows:
+```
+.\mvnw.cmd clean spring-boot:run
+```
 
 Veja o sistema rodando abrindo num navegador, na url:
 - http://localhost:8080/cursos
+
+## Leitura opcional:
+
+Para seguir este tutorial, é importante ter em mãos os dados de acesso ao banco, pois a aplicação possui os meios necessários para acessá-lo automaticamente, basta que se configure uma única vez.
+<br />
+Porém, é necessário saber de algumas coisas:
+1. o sistema de banco de dados deve estar sempre ativo (no geral está sempre ativo por padrão);
+2. a aplicação não funcionará caso esteja referenciando um banco que não existe;
+3. o banco necessita de um usuário para que haja o acesso;
+4. assim como um banco inexistente, um usuário inexistente quebrará a aplicação;
+5. bem como um usuário que não possui as permissões necessárias para o acesso.
+<br />
+Nisso __sempre__ se atente ao seguinte: um banco deve ser existente. Crie um caso não exista.
+<br />
+Geralmente no momento da criação de um banco, o sistema que gerencia pergunta a qual usuário devemos vincular aquele acesso. Por padrão ele sugere que o usuário root (que possui todos os privilégios) tenha acesso. Mas não é o recomendado, ainda mais se o root não foi configurado com uma senha.
+<br />
+Neste caso, crie um usuário especificamente para aquele acesso ao banco, e se certifique de checar suas permissões. São boas práticas que nunca devem ser deixadas de lado.
