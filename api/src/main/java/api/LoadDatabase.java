@@ -19,14 +19,14 @@ class LoadDatabase {
   CommandLineRunner initDatabaseCursos(CursoRepository repository) {
 		Long spring = new Long(1);
 		System.out.println(repository.findById(spring));
-		if (repository.findById(spring).isEmpty()) {
+		if (! repository.findById(spring).isPresent()) {
 			String    carga  = "20HS";
 			LocalDate inicio = LocalDate.now();
 			String    titulo = "API REST - Spring Boot";
 			repository.save(new Curso(carga, inicio, titulo));
 		}
 		Long laravel = new Long(2);
-		if (repository.findById(laravel).isEmpty()) {
+		if (! repository.findById(laravel).isPresent()) {
 			String    carga   = "30HS";
 			LocalDate inicio  = LocalDate.now();
 			String    titulo  = "API REST - Laravel";
@@ -40,21 +40,21 @@ class LoadDatabase {
 		Curso laravel = new Curso(); laravel.setId(new Long(2));
 
 		Long aula_1 = new Long(1);
-		if (repository.findById(aula_1).isEmpty()) {
+		if (! repository.findById(aula_1).isPresent()) {
 			String    titulo    = "Aula 01";
 			String    descricao = "...";
 			int       numero    = 1;
 			repository.save(new Videoaula(titulo, descricao, numero, laravel));
 		}
 		Long aula_2 = new Long(2);
-		if (repository.findById(aula_2).isEmpty()) {
+		if (! repository.findById(aula_2).isPresent()) {
 			String    titulo    = "Aula 01";
 			String    descricao = "...";
 			int       numero    = 2;
 			repository.save(new Videoaula(titulo, descricao, numero, laravel));
 		}
 		Long aula_3 = new Long(3);
-		if (repository.findById(aula_3).isEmpty()) {
+		if (! repository.findById(aula_3).isPresent()) {
 			String    titulo    = "Aula 01";
 			String    descricao = "...";
 			int       numero    = 3;
@@ -69,14 +69,14 @@ class LoadDatabase {
 		Curso spring  = new Curso(); spring.setId(new Long(1));
 
 		Long aula_4 = new Long(4);
-		if (repository.findById(aula_4).isEmpty()) {
+		if (! repository.findById(aula_4).isPresent()) {
 			String    titulo    = "Aula 01";
 			String    descricao = "...";
 			int       numero    = 1;
 			repository.save(new Videoaula(titulo, descricao, numero, spring));
 		}
 		Long aula_5 = new Long(5);
-		if (repository.findById(aula_5).isEmpty()) {
+		if (! repository.findById(aula_5).isPresent()) {
 			String    titulo    = "Aula 02";
 			String    descricao = "...";
 			int       numero    = 1;
