@@ -1,4 +1,3 @@
-// package api.http.controller;
 package api.http.exception;
 
 public class CursoNotFoundException extends RuntimeException {
