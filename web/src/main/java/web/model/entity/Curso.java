@@ -1,4 +1,5 @@
-package web.model;
+package web.model.entity;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
@@ -52,4 +53,10 @@ public class Curso {
   public void setVideoaulas(List<Videoaula> videoaulas) {
     this.videoaulas = videoaulas;
   }
+
+	// @Override
+	// public String toString()
+	// {
+	// 	return "Curso de " + this.titulo + ", com data de início em " + this.dataInicio;
+	// }
 }

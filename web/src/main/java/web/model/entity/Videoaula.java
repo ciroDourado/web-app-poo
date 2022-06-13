@@ -1,4 +1,5 @@
-package web.model;
+package web.model.entity;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
