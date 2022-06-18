@@ -54,9 +54,15 @@ public class Curso {
     this.videoaulas = videoaulas;
   }
 
-	// @Override
-	// public String toString()
-	// {
-	// 	return "Curso de " + this.titulo + ", com data de início em " + this.dataInicio;
-	// }
+	@Override
+	public String toString()
+	{
+		return 
+    "{" +
+      "\"id\":" + this.getId() + "," +
+      "\"titulo\":" + "\"" + this.getTitulo() + "\"" + "," +
+      "\"dataInicio\":" + "\"" + this.getDataInicio() + "\"" + "," +
+      "\"cargaHoraria\":" + "\"" + this.getCargaHoraria() + "\"" +
+    "}";
+	}
 }
