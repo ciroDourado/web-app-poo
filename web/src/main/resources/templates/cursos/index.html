@@ -12,11 +12,8 @@
 		      <th>Data de início</th>
 		    </tr>
 		  </thead>
-		  <tbody>
-		    <tr th:each="curso: ${cursos}">
-		      <td th:text="${curso.titulo}"></td>
-		      <td th:text="${curso.dataInicio}"></td>
-		    </tr>
+		  <tbody th:each="componente: ${componentes}">
+				<div th:remove="tag" th:utext="${componente}"></div>
 		  </tbody>
 		</table>
 		<script src="js/cursos/index.js"></script>
